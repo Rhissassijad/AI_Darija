@@ -1,0 +1,254 @@
+:root {
+  --bg: #fbfbf9;
+  --ink: #141414;
+  --muted: #555f5a;
+  --primary-red: #c4121a;
+  --primary-green: #0b8f43;
+  --green-deep: #086b34;
+  --card: #ffffff;
+  --soft: #f3f7f1;
+  --border: #d7e6dc;
+  --shadow: 0 24px 80px rgba(20, 20, 20, 0.12);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+textarea {
+  font: inherit;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 32px 18px;
+  background:
+    linear-gradient(135deg, rgba(11, 143, 67, 0.12), transparent 34%),
+    linear-gradient(315deg, rgba(196, 18, 26, 0.12), transparent 32%),
+    var(--bg);
+}
+
+.translator-panel {
+  width: min(760px, 100%);
+  padding: 32px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: var(--shadow);
+}
+
+.title-row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.brand-mark {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 8px;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--primary-green), var(--primary-red));
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  color: var(--green-deep);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+h1 {
+  margin: 0;
+  color: var(--primary-red);
+  font-size: clamp(2rem, 6vw, 3.35rem);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.text-input {
+  width: 100%;
+  min-height: 112px;
+  resize: vertical;
+  border: 2px solid var(--primary-green);
+  border-radius: 8px;
+  padding: 14px 16px;
+  background: #ffffff;
+  color: var(--ink);
+  line-height: 1.5;
+  outline: none;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.text-input:focus {
+  border-color: var(--primary-red);
+  box-shadow: 0 0 0 4px rgba(196, 18, 26, 0.14);
+}
+
+.text-input:disabled {
+  cursor: not-allowed;
+  border-color: var(--border);
+  background: #f6f8f6;
+  color: #7b837f;
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.result-title,
+.status-inline,
+.feedback,
+.save-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.result-title {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.status-inline {
+  color: var(--green-deep);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.result-box {
+  min-height: 68px;
+  padding: 16px;
+  border: 2px solid var(--primary-green);
+  border-radius: 8px;
+  background: var(--soft);
+  color: var(--ink);
+  font-size: 1.15rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.source-label {
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+
+.correction-form {
+  margin-top: 26px;
+}
+
+.correction-input {
+  min-height: 96px;
+}
+
+.save-button {
+  justify-content: center;
+  min-height: 46px;
+  margin-top: 14px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--primary-green);
+  color: #ffffff;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    transform 160ms ease;
+}
+
+.save-button:hover:not(:disabled) {
+  background: var(--green-deep);
+  transform: translateY(-1px);
+}
+
+.save-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.feedback {
+  width: 100%;
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.success {
+  border: 1px solid #b8dfc7;
+  background: #edf8f0;
+  color: #075e2e;
+}
+
+.error {
+  border: 1px solid #f0c1c5;
+  background: #fff0f1;
+  color: #9c1017;
+}
+
+.spin {
+  animation: spin 800ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 620px) {
+  .app-shell {
+    align-items: start;
+    padding: 18px 12px;
+  }
+
+  .translator-panel {
+    padding: 22px 16px;
+  }
+
+  .title-row,
+  .result-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .brand-mark {
+    width: 48px;
+    height: 48px;
+  }
+}
